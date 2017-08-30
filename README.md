@@ -3,11 +3,6 @@ Computational correction of copy-number effect in CRISPR-Cas9 essentiality scree
 
 ## Installation instructions
 
-To install CERES, clone the `ceres` repository and begin an R session. If it is not already installed, make sure to install the package `devtools` by running:
-
-```
-install.packages("devtools")
-```
 You will need several packages available on [Bioconductor](https://bioconductor.org) before installing CERES. To install these, run:
 
 ```
@@ -17,7 +12,19 @@ biocLite(c("Biostrings", "Rsamtools",
             "BSgenome.Hsapiens.UCSC.hg19", "GenomicRanges"))
 ```
 
-Then, navigate to your local copy of this repository and run:
+If the `devtools` package is not already installed, install from the R console:
+
+```
+install.packages("devtools")
+```
+
+To install CERES, either run:
+
+```
+devtools::install_github("cancerdatasci/ceres")
+```
+
+or clone the `ceres` repository, navigate to the local copy, and run from the R console: 
 
 ```
 devtools::install("ceres")
