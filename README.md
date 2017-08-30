@@ -78,7 +78,7 @@ prepare_ceres_inputs(inputs_dir=gecko_inputs_dir,
 gecko_ceres <-
     wrap_ceres(sg_path=file.path(gecko_inputs_dir, "guide_sample_dep.rds"),
                cn_path=file.path(gecko_inputs_dir, "locus_sample_cn.rds"),
-               guide_locus_path=file.path(wang_inputs_dir, "guide_locus.rds"),
+               guide_locus_path=file.path(gecko_inputs_dir, "guide_locus.rds"),
                locus_gene_path=file.path(gecko_inputs_dir, "locus_gene.rds"),
                replicate_map_path=file.path(gecko_inputs_dir, "replicate_map.rds"),
                run_id="Gecko",
