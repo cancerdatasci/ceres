@@ -43,10 +43,15 @@ Run the example script below, ensuring that the data_dir variable points to the 
 ```
 library(ceres)
 
+### Setup
+
+# Edit this line to point to data directory
 data_dir <- "./data/download"
 
 cn_seg_file <- file.path(data_dir, "CCLE_copynumber_2013-12-03.seg.txt")
 gene_annot_file <- file.path(data_dir, "CCDS.current.txt")
+
+# Set bowtie index directory. Not needed if $BOWTIE_INDEXES environmental variable is set and includes hg19 index.
 Sys.setenv(BOWTIE_INDEXES = file.path(data_dir, "bowtie_indexes"))
 
 
@@ -58,6 +63,7 @@ wang_rep_map <- file.path(data_dir, "Wang2017_replicate_map.tsv")
 
 
 
+### Run CERES on Gecko data
 
 gecko_inputs_dir <- file.path("./data/gecko_inputs", Sys.Date())
 
@@ -70,17 +76,19 @@ prepare_ceres_inputs(inputs_dir=gecko_inputs_dir,
                      dep_normalize="zmad")
 
 gecko_ceres <-
-    wrap_ceres(sg_path=file.path(wang_inputs_dir, "guide_sample_dep.rds"),
-               cn_path=file.path(wang_inputs_dir, "locus_sample_cn.rds"),
+    wrap_ceres(sg_path=file.path(gecko_inputs_dir, "guide_sample_dep.rds"),
+               cn_path=file.path(gecko_inputs_dir, "locus_sample_cn.rds"),
                guide_locus_path=file.path(wang_inputs_dir, "guide_locus.rds"),
-               locus_gene_path=file.path(wang_inputs_dir, "locus_gene.rds"),
-               replicate_map_path=file.path(wang_inputs_dir, "replicate_map.rds"),
-               run_id="Wang2017",
+               locus_gene_path=file.path(gecko_inputs_dir, "locus_gene.rds"),
+               replicate_map_path=file.path(gecko_inputs_dir, "replicate_map.rds"),
+               run_id="Gecko",
                params=list(lambda_g=0.68129207))
 
 gecko_ceres_scaled <-
     scale_to_essentials(gecko_ceres$gene_essentiality_results$ge_fit)
 
+
+### Run CERES on Wang2017 data
 
 wang_inputs_dir <- file.path("./data/wang_inputs", Sys.Date())
 
