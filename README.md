@@ -33,7 +33,7 @@ brew install samtools
 
 ## Run CERES on example data
 
-Download [example data bundle](https://depmap.org/ceres/data/example_data.zip) from [depmap.org/ceres](http://depmap.org/ceres) and extract into a directory. (e.g. `./data/download`)
+Download [example data bundle](https://depmap.org/ceres/data/example_data.zip) from [depmap.org/ceres](https://depmap.org/ceres) and extract into a directory. (e.g. `./data/download`)
 
 Example data are from screens of 33 cancer cell lines published in [Aguirre et al. 2017](https://www.ncbi.nlm.nih.gov/pubmed/27260156) and 14 AML lines published in [Wang et al. 2017](https://www.ncbi.nlm.nih.gov/pubmed/28162770).
 
@@ -78,7 +78,8 @@ gecko_ceres <-
                run_id="Wang2017",
                params=list(lambda_g=0.68129207))
 
-
+gecko_ceres_scaled <-
+    scale_to_essentials(gecko_ceres$gene_essentiality_results$ge_fit)
 
 
 wang_inputs_dir <- file.path("./data/wang_inputs", Sys.Date())
@@ -99,4 +100,7 @@ wang_ceres <-
                replicate_map_path=file.path(wang_inputs_dir, "replicate_map.rds"),
                run_id="Wang2017",
                params=list(lambda_g=0.68129207))
+
+wang_ceres_scaled <-
+    scale_to_essentials(wang_ceres$gene_essentiality_results$ge_fit)
 ```
