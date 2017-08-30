@@ -65,7 +65,7 @@ wang_rep_map <- file.path(data_dir, "Wang2017_replicate_map.tsv")
 
 ### Run CERES on Gecko data
 
-gecko_inputs_dir <- file.path("./data/gecko_inputs", Sys.Date())
+gecko_inputs_dir <- file.path("./data/gecko_ceres_inputs", Sys.Date())
 
 prepare_ceres_inputs(inputs_dir=gecko_inputs_dir,
                      dep_file=gecko_dep_file,
@@ -90,7 +90,7 @@ gecko_ceres_scaled <-
 
 ### Run CERES on Wang2017 data
 
-wang_inputs_dir <- file.path("./data/wang_inputs", Sys.Date())
+wang_inputs_dir <- file.path("./data/wang_ceres_inputs", Sys.Date())
 
 prepare_ceres_inputs(inputs_dir=wang_inputs_dir,
                      dep_file=wang_dep_file,
