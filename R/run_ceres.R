@@ -1,4 +1,4 @@
-#' @useDynLib ceresr
+#' @useDynLib ceres
 #' @importFrom Rcpp sourceCpp
 #' @import e1071
 #' @import readr
@@ -17,7 +17,7 @@ NULL
 #' @param params list of run parameters
 #'
 #' @return A list of numeric vectors and matrices containing the results of the CERES fit.
-#' 
+#'
 #' @importFrom plyr .
 #' @export run_ceres
 #'

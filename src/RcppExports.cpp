@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // fit_ceres
 Rcpp::List fit_ceres(NumericMatrix& rD, NumericMatrix& rQ, NumericMatrix& rM, NumericVector& rColCl, NumericMatrix& rG, NumericMatrix& rC, NumericVector& rTox, NumericMatrix& rQuantileMat, double LAMBDA_G, double LAMBDA_Off, double LAMBDA_Smooth, int NSEGMENTS, int MAKE_VALIDATION_SET, String log_file_suffix, String log_file_dir);
-RcppExport SEXP _ceresr_fit_ceres(SEXP rDSEXP, SEXP rQSEXP, SEXP rMSEXP, SEXP rColClSEXP, SEXP rGSEXP, SEXP rCSEXP, SEXP rToxSEXP, SEXP rQuantileMatSEXP, SEXP LAMBDA_GSEXP, SEXP LAMBDA_OffSEXP, SEXP LAMBDA_SmoothSEXP, SEXP NSEGMENTSSEXP, SEXP MAKE_VALIDATION_SETSEXP, SEXP log_file_suffixSEXP, SEXP log_file_dirSEXP) {
+RcppExport SEXP _ceres_fit_ceres(SEXP rDSEXP, SEXP rQSEXP, SEXP rMSEXP, SEXP rColClSEXP, SEXP rGSEXP, SEXP rCSEXP, SEXP rToxSEXP, SEXP rQuantileMatSEXP, SEXP LAMBDA_GSEXP, SEXP LAMBDA_OffSEXP, SEXP LAMBDA_SmoothSEXP, SEXP NSEGMENTSSEXP, SEXP MAKE_VALIDATION_SETSEXP, SEXP log_file_suffixSEXP, SEXP log_file_dirSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -33,11 +33,11 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_ceresr_fit_ceres", (DL_FUNC) &_ceresr_fit_ceres, 15},
+    {"_ceres_fit_ceres", (DL_FUNC) &_ceres_fit_ceres, 15},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_ceresr(DllInfo *dll) {
+RcppExport void R_init_ceres(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

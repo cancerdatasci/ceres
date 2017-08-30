@@ -2,6 +2,6 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 fit_ceres <- function(rD, rQ, rM, rColCl, rG, rC, rTox, rQuantileMat, LAMBDA_G, LAMBDA_Off, LAMBDA_Smooth, NSEGMENTS, MAKE_VALIDATION_SET, log_file_suffix = "", log_file_dir = "log") {
-    .Call('_ceresr_fit_ceres', PACKAGE = 'ceresr', rD, rQ, rM, rColCl, rG, rC, rTox, rQuantileMat, LAMBDA_G, LAMBDA_Off, LAMBDA_Smooth, NSEGMENTS, MAKE_VALIDATION_SET, log_file_suffix, log_file_dir)
+    .Call('_ceres_fit_ceres', PACKAGE = 'ceres', rD, rQ, rM, rColCl, rG, rC, rTox, rQuantileMat, LAMBDA_G, LAMBDA_Off, LAMBDA_Smooth, NSEGMENTS, MAKE_VALIDATION_SET, log_file_suffix, log_file_dir)
 }
 
