@@ -1,0 +1,170 @@
+[
+    {
+        "definitions" : [
+            {
+                "column" : 8,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 18,
+                "name" : "sign_func(double)",
+                "parent_name" : "",
+                "usr" : "c:@F@sign_func#d#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 28,
+                "name" : "cn_func(double)",
+                "parent_name" : "",
+                "usr" : "c:@F@cn_func#d#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 36,
+                "name" : "un_nan(double)",
+                "parent_name" : "",
+                "usr" : "c:@F@un_nan#d#"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 44,
+                "name" : "is_less_than_zero(Eigen::VectorXd &)",
+                "parent_name" : "",
+                "usr" : "c:@F@is_less_than_zero#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 54,
+                "name" : "is_between_one_and_zero(Eigen::VectorXd &)",
+                "parent_name" : "",
+                "usr" : "c:@F@is_between_one_and_zero#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 64,
+                "name" : "backtrack(Eigen::SparseMatrix<double> &, Eigen::VectorXd &, Eigen::VectorXd &, Eigen::VectorXd &, Eigen::VectorXd &, Eigen::MatrixXd &, double, double, double, int, int, int, int, int, double, double, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@backtrack#&$@N@Eigen@C@SparseMatrix>#d#VI0#I#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#S2_#S2_#S2_#&$@N@Eigen@C@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#d#d#d#I#I#I#I#I#d#d#d#"
+            },
+            {
+                "column" : 17,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 115,
+                "name" : "Newton(Eigen::SparseMatrix<double> &, Eigen::VectorXd &, Eigen::SparseMatrix<double> &, Eigen::VectorXd &, Eigen::VectorXd &, Eigen::MatrixXd &, double, double, double, double, int, int, int, int, int, double, double, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@Newton#&$@N@Eigen@C@SparseMatrix>#d#VI0#I#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#S0_#S2_#S2_#&$@N@Eigen@C@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#d#d#d#d#I#I#I#I#I#d#d#d#"
+            },
+            {
+                "column" : 17,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 232,
+                "name" : "Barrier(Eigen::SparseMatrix<double> &, Eigen::VectorXd &, Eigen::VectorXd &, Eigen::MatrixXd &, double, double, double, double, double, int, int, int, int, int, double, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@Barrier#&$@N@Eigen@C@SparseMatrix>#d#VI0#I#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#S2_#&$@N@Eigen@C@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#d#d#d#d#d#I#I#I#I#I#d#d#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 324,
+                "name" : "backtrack2(Eigen::SparseMatrix<double> &, Eigen::VectorXd &, Eigen::VectorXd &, Eigen::VectorXd &, Eigen::VectorXd &, double, double, double, int, int, double, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@backtrack2#&$@N@Eigen@C@SparseMatrix>#d#VI0#I#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#S2_#S2_#S2_#d#d#d#I#I#d#d#"
+            },
+            {
+                "column" : 17,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 350,
+                "name" : "Newton2(Eigen::SparseMatrix<double> &, Eigen::VectorXd &, Eigen::SparseMatrix<double> &, Eigen::VectorXd &, Eigen::VectorXd &, double, double, double, double, int, int, double, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@Newton2#&$@N@Eigen@C@SparseMatrix>#d#VI0#I#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#S0_#S2_#S2_#d#d#d#d#I#I#d#d#"
+            },
+            {
+                "column" : 17,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 404,
+                "name" : "Barrier2(Eigen::SparseMatrix<double> &, Eigen::VectorXd &, Eigen::VectorXd &, double, double, double, double, double, int, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@Barrier2#&$@N@Eigen@C@SparseMatrix>#d#VI0#I#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#S2_#d#d#d#d#d#I#I#d#"
+            },
+            {
+                "column" : 29,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 448,
+                "name" : "makeValidationSet(Eigen::MatrixXd &, Eigen::SparseMatrix<double> &, double, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@makeValidationSet#&$@N@Eigen@C@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#&$@N@Eigen@C@SparseMatrix>#d#VI0#I#d#I#"
+            },
+            {
+                "column" : 17,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 567,
+                "name" : "findRedundantGenes(Eigen::SparseMatrix<double> &)",
+                "parent_name" : "",
+                "usr" : "c:@F@findRedundantGenes#&$@N@Eigen@C@SparseMatrix>#d#VI0#I#"
+            },
+            {
+                "column" : 17,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 654,
+                "name" : "removeRedundantGenes(Eigen::MatrixXd &, Eigen::VectorXd &)",
+                "parent_name" : "",
+                "usr" : "c:@F@removeRedundantGenes#&$@N@Eigen@C@Matrix>#d#VI-1#VI-1#VI0#VI-1#VI-1#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#"
+            },
+            {
+                "column" : 46,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 669,
+                "name" : "removeRedundantMappings(Eigen::SparseMatrix<double, Eigen::RowMajor> &, Eigen::VectorXd &)",
+                "parent_name" : "",
+                "usr" : "c:@F@removeRedundantMappings#&$@N@Eigen@C@SparseMatrix>#d#VI1#I#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#"
+            },
+            {
+                "column" : 6,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 698,
+                "name" : "writeTextToLog(std::string &, std::string &)",
+                "parent_name" : "",
+                "usr" : "c:@F@writeTextToLog#&$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#S0_#"
+            },
+            {
+                "column" : 20,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 703,
+                "name" : "makeQuantiles(Eigen::VectorXd, int, int, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@makeQuantiles#$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#I#I#I#"
+            },
+            {
+                "column" : 12,
+                "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+                "kind" : 6,
+                "line" : 804,
+                "name" : "fit_ceres(NumericMatrix &, NumericMatrix &, NumericMatrix &, NumericVector &, NumericMatrix &, NumericMatrix &, NumericVector &, NumericMatrix &, double, double, double, int, int, Rcpp::String, Rcpp::String)",
+                "parent_name" : "",
+                "usr" : "c:@F@fit_ceres#&$@N@Rcpp@C@Matrix>#VI14#@N@Rcpp@CT>1#T@PreserveStorage#S0_#S0_#&$@N@Rcpp@C@Vector>#VI14#@N@Rcpp@CT>1#T@PreserveStorage#S0_#S0_#S2_#S0_#d#d#d#I#I#$@N@Rcpp@C@String#S4_#"
+            }
+        ],
+        "file" : "/Users/jbryan/CPDS/cds_pkg/ceresr/src/ceresv51.cpp",
+        "file_last_write" : 1504041611
+    }
+]
