@@ -23,7 +23,7 @@ Then, navigate to your local copy of this repository and run:
 devtools::install("ceresr")
 ```
 
-Preparing CERES inputs also requires the [`bowtie`](http://bowtie-bio.sourceforge.net/index.shtml) and [`samtools`](http://samtools.sourceforge.net) command line tools. OSX users with `homebrew` installed, these can be installed with the command:
+Preparing CERES inputs also requires the [`bowtie`](http://bowtie-bio.sourceforge.net/index.shtml) and [`samtools`](http://samtools.sourceforge.net) command line tools. For OSX users with `homebrew` installed on their machine, these can be installed with the commands:
 
 ```
 brew install bowtie
