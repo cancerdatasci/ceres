@@ -137,7 +137,7 @@ run_ceres <- function(sg_data, cn_data, guide_locus, locus_gene,
         dplyr::ungroup() %>%
         plyr::daply(.(CellLine), function(x){
           cat(paste0("\rClustering cuts for ", unique(x$CellLine), "...                          "))
-          return(ceresr::cluster_cn(x$Cuts, n_segments=unique(params[["n_segments"]]) %>% as.integer()))
+          return(ceres::cluster_cn(x$Cuts, n_segments=unique(params[["n_segments"]]) %>% as.integer()))
 
         }) %>%
         matrix(nrow=n_lines)
@@ -186,7 +186,7 @@ run_ceres <- function(sg_data, cn_data, guide_locus, locus_gene,
                              NSEGMENTS = n_s, MAKE_VALIDATION_SET = v_s,
                              log_file_suffix = r_n, log_file_dir = logfile_path)
     #
-    collated_results <- ceresr::collate_ceres_results(res, sg_data, cn_data)
+    collated_results <- ceres::collate_ceres_results(res, sg_data, cn_data)
     return(collated_results)
 
   } else {
@@ -234,7 +234,7 @@ run_ceres <- function(sg_data, cn_data, guide_locus, locus_gene,
                              NSEGMENTS = n_s, MAKE_VALIDATION_SET = v_s,
                              log_file_suffix = r_n, log_file_dir = logfile_path)
     #
-    collated_results <- ceresr::collate_ceres_results(res, sg_data, cn_data)
+    collated_results <- ceres::collate_ceres_results(res, sg_data, cn_data)
 
     collated_results[["optimization_results"]] <- optimization_results
 

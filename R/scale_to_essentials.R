@@ -9,8 +9,8 @@
 scale_to_essentials <- function(ge_fit){
   
   
-  essential_indices <- which(row.names(ge_fit) %in% ceresr::hart_essentials[["Gene"]])
-  nonessential_indices <- which(row.names(ge_fit) %in% ceresr::hart_nonessentials[["Gene"]])
+  essential_indices <- which(row.names(ge_fit) %in% ceres::hart_essentials[["Gene"]])
+  nonessential_indices <- which(row.names(ge_fit) %in% ceres::hart_nonessentials[["Gene"]])
   
   scaled_ge_fit <- ge_fit %>%
                     apply(2, function(x){

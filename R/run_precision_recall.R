@@ -10,13 +10,13 @@ run_precision_recall <- function(ge_fit){
   
   
   test_gene_indices <- which(row.names(ge_fit) %in% 
-                               union(ceresr::hart_essentials[["Gene"]], 
-                                     ceresr::hart_nonessentials[["Gene"]]))
+                               union(ceres::hart_essentials[["Gene"]], 
+                                     ceres::hart_nonessentials[["Gene"]]))
   
   screen_results <- lapply(colnames(ge_fit), function(x){
                         
-                        true_values <- ifelse(row.names(ge_fit[test_gene_indices, x, drop=F]) %in% ceresr::hart_essentials[["Gene"]], 1, 0)
-                        ceresr::evaluate_prediction_auc(-1*ge_fit[test_gene_indices, x, drop=F], true_values)
+                        true_values <- ifelse(row.names(ge_fit[test_gene_indices, x, drop=F]) %in% ceres::hart_essentials[["Gene"]], 1, 0)
+                        ceres::evaluate_prediction_auc(-1*ge_fit[test_gene_indices, x, drop=F], true_values)
                         
                       }) %>%
                       set_names(colnames(ge_fit))
