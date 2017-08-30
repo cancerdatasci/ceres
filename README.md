@@ -35,7 +35,7 @@ brew install samtools
 
 Download example data bundle from [depmap.org/ceres](http://depmap.org/ceres) and extract into a directory. (e.g. `./data/download`)
 
-Example data are from screens of 33 cancer cell lines published in [Aguirre et al. 2017](https://www.ncbi.nlm.nih.gov/pubmed/27260156) and 14 AML lines s[Wang et al. 2017](https://www.ncbi.nlm.nih.gov/pubmed/28162770).
+Example data are from screens of 33 cancer cell lines published in [Aguirre et al. 2017](https://www.ncbi.nlm.nih.gov/pubmed/27260156) and 14 AML lines published in [Wang et al. 2017](https://www.ncbi.nlm.nih.gov/pubmed/28162770).
 
 Run the example script, ensuring that the data_dir variable points to the directory with the data download.
 
