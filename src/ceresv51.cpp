@@ -1034,7 +1034,6 @@ Rcpp::List fit_ceres(NumericMatrix & rD,
 			val_error +=  temp_error / Val_Set.col(c).sum();
 			train_error += (((1.0/std::sqrt(reps_per_cl(ColCl(c))))*(D.col(c) - Dhat.col(ColCl(c)))).squaredNorm() - temp_error);
 		}
-		double validation_set_nonzeros = Val.nonZeros();
 		val_error = val_error / NLINES;
 		train_error = train_error / (NGUIDES*NLINES);
 		Rcpp::Rcout << "\nTraining error is " << train_error << std::endl;
@@ -1320,7 +1319,6 @@ Rcpp::List fit_ceres(NumericMatrix & rD,
 		val_error +=  temp_error / Val_Set.col(c).sum();
 		train_error += (((1.0/std::sqrt(reps_per_cl(ColCl(c))))*(D.col(c) - Dhat.col(ColCl(c)))).squaredNorm() - temp_error);
 	}
-	double validation_set_nonzeros = Val.nonZeros();
 	val_error = val_error / NLINES;
 	train_error = train_error / (NGUIDES*NLINES);
 	Rcpp::Rcout << "\nTraining error is " << train_error << std::endl;
