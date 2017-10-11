@@ -30,6 +30,14 @@ or clone the `ceres` repository, navigate to the local copy, and run from the R 
 devtools::install("ceres")
 ```
 
+Note that if C++11 support is not already enabled, you may need to run
+
+```
+Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
+```
+
+prior to running the install command.
+
 Preparing CERES inputs also requires the [`bowtie`](http://bowtie-bio.sourceforge.net/index.shtml) and [`samtools`](http://samtools.sourceforge.net) command line tools. For OSX users with `homebrew` installed on their machine, these can be installed from the command line:
 
 ```
