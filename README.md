@@ -9,7 +9,7 @@ You will need several packages available on [Bioconductor](https://bioconductor.
 source("https://bioconductor.org/biocLite.R")
 biocLite(c("Biostrings", "Rsamtools", 
             "GenomeInfoDb", "BSgenome", 
-            "BSgenome.Hsapiens.UCSC.hg19", "GenomicRanges"))
+            "BSgenome.Hsapiens.UCSC.hg19", "GenomicRanges"), type="source")
 ```
 
 If the `devtools` package is not already installed, install from the R console:
