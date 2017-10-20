@@ -91,11 +91,11 @@ prepare_ceres_inputs(inputs_dir=gecko_inputs_dir,
                      dep_normalize="zmad")
 
 gecko_ceres <-
-    wrap_ceres(sg_path=file.path(gecko_inputs_dir, "guide_sample_dep.rds"),
-               cn_path=file.path(gecko_inputs_dir, "locus_sample_cn.rds"),
-               guide_locus_path=file.path(gecko_inputs_dir, "guide_locus.rds"),
-               locus_gene_path=file.path(gecko_inputs_dir, "locus_gene.rds"),
-               replicate_map_path=file.path(gecko_inputs_dir, "replicate_map.rds"),
+    wrap_ceres(sg_path=file.path(gecko_inputs_dir, "guide_sample_dep.Rds"),
+               cn_path=file.path(gecko_inputs_dir, "locus_sample_cn.Rds"),
+               guide_locus_path=file.path(gecko_inputs_dir, "guide_locus.Rds"),
+               locus_gene_path=file.path(gecko_inputs_dir, "locus_gene.Rds"),
+               replicate_map_path=file.path(gecko_inputs_dir, "replicate_map.Rds"),
                run_id="Gecko",
                params=list(lambda_g=0.68129207))
 
@@ -116,11 +116,11 @@ prepare_ceres_inputs(inputs_dir=wang_inputs_dir,
                      dep_normalize="zmad")
 
 wang_ceres <-
-    wrap_ceres(sg_path=file.path(wang_inputs_dir, "guide_sample_dep.rds"),
-               cn_path=file.path(wang_inputs_dir, "locus_sample_cn.rds"),
-               guide_locus_path=file.path(wang_inputs_dir, "guide_locus.rds"),
-               locus_gene_path=file.path(wang_inputs_dir, "locus_gene.rds"),
-               replicate_map_path=file.path(wang_inputs_dir, "replicate_map.rds"),
+    wrap_ceres(sg_path=file.path(wang_inputs_dir, "guide_sample_dep.Rds"),
+               cn_path=file.path(wang_inputs_dir, "locus_sample_cn.Rds"),
+               guide_locus_path=file.path(wang_inputs_dir, "guide_locus.Rds"),
+               locus_gene_path=file.path(wang_inputs_dir, "locus_gene.Rds"),
+               replicate_map_path=file.path(wang_inputs_dir, "replicate_map.Rds"),
                run_id="Wang2017",
                params=list(lambda_g=0.68129207))
 
