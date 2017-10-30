@@ -48,7 +48,7 @@ brew install samtools
 
 ## Run CERES on example data
 
-Download [zipped files](https://depmap.org/ceres/data/example_data.zip) from [depmap.org/ceres](https://depmap.org/ceres) and extract into a directory. (e.g. `./data/download`)
+Download [these zipped files](https://depmap.org/ceres/data/example_data.zip) from [depmap.org/ceres](https://depmap.org/ceres) and extract into a directory. (e.g. `./data/download`)
 
 The data in the example files are from screens of 33 cancer cell lines published in [Aguirre et al. 2016](https://www.ncbi.nlm.nih.gov/pubmed/27260156) and 14 AML lines published in [Wang et al. 2017](https://www.ncbi.nlm.nih.gov/pubmed/28162770).
 
