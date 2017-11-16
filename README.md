@@ -48,7 +48,7 @@ brew install samtools
 
 ## Run CERES on example data
 
-Download [these zipped files](https://depmap.org/ceres/data/example_data.zip) from [depmap.org/ceres](https://depmap.org/ceres) and extract into a directory. (e.g. `./data/download`). If you haven't already fetched / built them yourself, you may also separately download the necessary bowtie indices [here](https://depmap.org/ceres/data/hg19_bowtie.tar) and place the unzipped files in the `bowtie_indexes` directory of the example folder.
+Download [these zipped files](https://depmap.org/ceres/data/example_data.zip) from [depmap.org/ceres](https://depmap.org/ceres) and extract into a directory. (e.g. `./data/download`). If you haven't already fetched / built them yourself, you should also separately download the necessary bowtie indices [here](https://depmap.org/ceres/data/hg19_bowtie.tar) and place the unzipped files in the `bowtie_indexes` directory of the example folder.
 
 The data in the example files are from screens of 33 cancer cell lines published in [Aguirre et al. 2016](https://www.ncbi.nlm.nih.gov/pubmed/27260156) and 14 AML lines published in [Wang et al. 2017](https://www.ncbi.nlm.nih.gov/pubmed/28162770).
 
