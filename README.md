@@ -41,7 +41,7 @@ prior to running the install command.
 Preparing CERES inputs also requires the [`bowtie`](http://bowtie-bio.sourceforge.net/index.shtml) and [`samtools`](http://samtools.sourceforge.net) command line tools. For OSX users with `homebrew` installed on their machine, these can be installed from the command line:
 
 ```
-brew tap homebrew/science
+brew tap brewsci/science
 brew install bowtie
 brew install samtools
 ```
