@@ -24,7 +24,7 @@ To install CERES, either run:
 devtools::install_github("cancerdatasci/ceres")
 ```
 
-or clone the `ceres` repository, navigate to the local copy, and run from the R console: 
+or clone the `ceres` repository, navigate to the parent directory of the local copy, and run from the R console: 
 
 ```
 devtools::install("ceres")
