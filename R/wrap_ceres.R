@@ -8,6 +8,8 @@
 #' @param run_id name for the CERES run
 #' @param optimize toggle optimization routine
 #' @param params list of parameters; must specify or use defaults when optimize = F
+#' @param fit_efficacy boolean indicating whether sgRNA offsets and activity scores are computed
+#'
 #' 
 #' @return A list of numeric vectors and matrices containing the results of the CERES fit.
 #' @examples
@@ -16,7 +18,8 @@
 #'
 wrap_ceres <- function(sg_path, cn_path, guide_locus_path,
                        locus_gene_path, replicate_map_path, 
-                       run_id, optimize=F, params=NULL, cl_subset=NULL){
+                       run_id, optimize=F, params=NULL, cl_subset=NULL,
+                       fit_efficacy=T){
   
   
   if(grepl(".txt$|.tsv$", sg_path, ignore.case = T)){
@@ -175,7 +178,7 @@ wrap_ceres <- function(sg_path, cn_path, guide_locus_path,
     params[["run_name"]] <- param_df[["run_name"]] %>% as.numeric()
     
     res <- run_ceres(sg_data, cn_data, guide_locus, locus_gene,
-                             replicate_map, params)
+                             replicate_map, params, fit_efficacy)
   }
   
   return(res)
