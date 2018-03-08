@@ -6,7 +6,7 @@
 \usage{
 wrap_ceres(sg_path, cn_path, guide_locus_path, locus_gene_path,
   replicate_map_path, run_id, optimize = F, params = NULL,
-  cl_subset = NULL)
+  cl_subset = NULL, fit_efficacy = T)
 }
 \arguments{
 \item{sg_path}{path to matrix with sgRNA sequences as row names, samples (i.e. replicates of cell line screens) as column names}
@@ -24,6 +24,8 @@ wrap_ceres(sg_path, cn_path, guide_locus_path, locus_gene_path,
 \item{optimize}{toggle optimization routine}
 
 \item{params}{list of parameters; must specify or use defaults when optimize = F}
+
+\item{fit_efficacy}{boolean indicating whether sgRNA offsets and activity scores are computed}
 }
 \value{
 A list of numeric vectors and matrices containing the results of the CERES fit.

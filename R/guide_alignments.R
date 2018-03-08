@@ -33,7 +33,7 @@ fetchPAM <- function(chr, pos, strand, guide_length=20) {
 #' @importFrom BSgenome getSeq
 #' @export
 #'
-guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG",
+guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
                             genome_id="hg19", chromosomes=paste0("chr", c(as.character(1:22), "X", "Y")),
                             include.no.align=F, as.df=T, guide_length=20) {
 

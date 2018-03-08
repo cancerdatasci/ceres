@@ -4,7 +4,8 @@
 \alias{run_ceres}
 \title{CERES main routine}
 \usage{
-run_ceres(sg_data, cn_data, guide_locus, locus_gene, replicate_map, params)
+run_ceres(sg_data, cn_data, guide_locus, locus_gene, replicate_map, params,
+  fit_efficacy)
 }
 \arguments{
 \item{sg_data}{matrix with sgRNA sequences as row names, samples (i.e. replicates of cell line screens) as column names.}
@@ -18,6 +19,8 @@ run_ceres(sg_data, cn_data, guide_locus, locus_gene, replicate_map, params)
 \item{replicate_map}{data.frame with column names `Replicate` and `CellLine`}
 
 \item{params}{list of run parameters}
+
+\item{fit_efficacy}{boolean indicating whether sgRNA offsets and activity scores are computed}
 }
 \value{
 A list of numeric vectors and matrices containing the results of the CERES fit.

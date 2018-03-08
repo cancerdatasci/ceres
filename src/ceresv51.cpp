@@ -812,7 +812,8 @@ Rcpp::List fit_ceres(NumericMatrix & rD,
 			  double LAMBDA_Smooth, int NSEGMENTS,
 			  int MAKE_VALIDATION_SET,
 			  String log_file_suffix = "",
-			  String log_file_dir = "log")
+			  String log_file_dir = "log",
+			  int fit_efficacy = 1)
 {
 
 	// Set random seed
@@ -1222,7 +1223,7 @@ Rcpp::List fit_ceres(NumericMatrix & rD,
 		Rcpp::Rcout << "Smoothness is " << (Smoothness*(Tox.transpose())).squaredNorm() << std::endl;
 		Rcpp::Rcout << "Gene sol size is " << G.squaredNorm() << std::endl;
 		//
-		if(NLINES >= 5){
+		if(NLINES >= 5 && fit_efficacy == 1){
 			//
 			// Solve least squares problem for all guides
 			//

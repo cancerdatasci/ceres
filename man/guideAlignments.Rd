@@ -4,7 +4,7 @@
 \alias{guideAlignments}
 \title{Read BAM file report, filter with valid PAM sequence, report # of alignments}
 \usage{
-guideAlignments(bam.file, max.alns = 100, pam = "[ACGTN]GG",
+guideAlignments(bam.file, max.alns = 100, pam = "[ACGTN]GG|GG[ACGTN]",
   genome_id = "hg19", chromosomes = paste0("chr", c(as.character(1:22), "X",
   "Y")), include.no.align = F, as.df = T)
 }

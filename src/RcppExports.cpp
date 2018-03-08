@@ -7,8 +7,8 @@
 using namespace Rcpp;
 
 // fit_ceres
-Rcpp::List fit_ceres(NumericMatrix& rD, NumericMatrix& rQ, NumericMatrix& rM, NumericVector& rColCl, NumericMatrix& rG, NumericMatrix& rC, NumericVector& rTox, NumericMatrix& rQuantileMat, double LAMBDA_G, double LAMBDA_Off, double LAMBDA_Smooth, int NSEGMENTS, int MAKE_VALIDATION_SET, String log_file_suffix, String log_file_dir);
-RcppExport SEXP _ceres_fit_ceres(SEXP rDSEXP, SEXP rQSEXP, SEXP rMSEXP, SEXP rColClSEXP, SEXP rGSEXP, SEXP rCSEXP, SEXP rToxSEXP, SEXP rQuantileMatSEXP, SEXP LAMBDA_GSEXP, SEXP LAMBDA_OffSEXP, SEXP LAMBDA_SmoothSEXP, SEXP NSEGMENTSSEXP, SEXP MAKE_VALIDATION_SETSEXP, SEXP log_file_suffixSEXP, SEXP log_file_dirSEXP) {
+Rcpp::List fit_ceres(NumericMatrix& rD, NumericMatrix& rQ, NumericMatrix& rM, NumericVector& rColCl, NumericMatrix& rG, NumericMatrix& rC, NumericVector& rTox, NumericMatrix& rQuantileMat, double LAMBDA_G, double LAMBDA_Off, double LAMBDA_Smooth, int NSEGMENTS, int MAKE_VALIDATION_SET, String log_file_suffix, String log_file_dir, int fit_efficacy);
+RcppExport SEXP _ceres_fit_ceres(SEXP rDSEXP, SEXP rQSEXP, SEXP rMSEXP, SEXP rColClSEXP, SEXP rGSEXP, SEXP rCSEXP, SEXP rToxSEXP, SEXP rQuantileMatSEXP, SEXP LAMBDA_GSEXP, SEXP LAMBDA_OffSEXP, SEXP LAMBDA_SmoothSEXP, SEXP NSEGMENTSSEXP, SEXP MAKE_VALIDATION_SETSEXP, SEXP log_file_suffixSEXP, SEXP log_file_dirSEXP, SEXP fit_efficacySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -27,13 +27,14 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type MAKE_VALIDATION_SET(MAKE_VALIDATION_SETSEXP);
     Rcpp::traits::input_parameter< String >::type log_file_suffix(log_file_suffixSEXP);
     Rcpp::traits::input_parameter< String >::type log_file_dir(log_file_dirSEXP);
-    rcpp_result_gen = Rcpp::wrap(fit_ceres(rD, rQ, rM, rColCl, rG, rC, rTox, rQuantileMat, LAMBDA_G, LAMBDA_Off, LAMBDA_Smooth, NSEGMENTS, MAKE_VALIDATION_SET, log_file_suffix, log_file_dir));
+    Rcpp::traits::input_parameter< int >::type fit_efficacy(fit_efficacySEXP);
+    rcpp_result_gen = Rcpp::wrap(fit_ceres(rD, rQ, rM, rColCl, rG, rC, rTox, rQuantileMat, LAMBDA_G, LAMBDA_Off, LAMBDA_Smooth, NSEGMENTS, MAKE_VALIDATION_SET, log_file_suffix, log_file_dir, fit_efficacy));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_ceres_fit_ceres", (DL_FUNC) &_ceres_fit_ceres, 15},
+    {"_ceres_fit_ceres", (DL_FUNC) &_ceres_fit_ceres, 16},
     {NULL, NULL, 0}
 };
 

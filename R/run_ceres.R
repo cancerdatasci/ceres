@@ -15,6 +15,7 @@ NULL
 #' @param locus_gene data.frame with column names `Locus` and `Gene`.
 #' @param replicate_map data.frame with column names `Replicate` and `CellLine`
 #' @param params list of run parameters
+#' @param fit_efficacy boolean indicating whether sgRNA offsets and activity scores are computed
 #'
 #' @return A list of numeric vectors and matrices containing the results of the CERES fit.
 #'
@@ -22,7 +23,7 @@ NULL
 #' @export run_ceres
 #'
 run_ceres <- function(sg_data, cn_data, guide_locus, locus_gene,
-                      replicate_map, params){
+                      replicate_map, params, fit_efficacy){
 
 
   # Set path to log file
@@ -179,12 +180,19 @@ run_ceres <- function(sg_data, cn_data, guide_locus, locus_gene,
     n_s <- run_mat[1, "n_segments"] %>% as.integer()
     v_s <- run_mat[1, "validation_set"] %>% as.integer()
     r_n <- row.names(run_mat)
-
+    
+    if(fit_efficacy){
+      fit_eff <- 1
+    } else {
+      fit_eff <- 0
+    }
+    
     res <- fit_ceres(rD = sg_data, rQ = guide_locus_triplets, rM = locus_gene_triplets, rColCl = ColCl,
                              rG = ge_data, rC = cn_data, rTox = ce_data, rQuantileMat = quantile_mat,
                              LAMBDA_G = l_g, LAMBDA_O = l_o, LAMBDA_Smooth = l_s,
                              NSEGMENTS = n_s, MAKE_VALIDATION_SET = v_s,
-                             log_file_suffix = r_n, log_file_dir = logfile_path)
+                             log_file_suffix = r_n, log_file_dir = logfile_path,
+                              fit_efficacy = fit_eff)
     #
     collated_results <- ceres::collate_ceres_results(res, sg_data, cn_data)
     return(collated_results)
@@ -199,12 +207,19 @@ run_ceres <- function(sg_data, cn_data, guide_locus, locus_gene,
       n_s <- run_mat[run, "n_segments"] %>% as.integer()
       v_s <- run_mat[run, "validation_set"] %>% as.integer()
       r_n <- run
-
+      
+      if(fit_efficacy){
+        fit_eff <- 1
+      } else {
+        fit_eff <- 0
+      }
+      
       res <- fit_ceres(rD = sg_data, rQ = guide_locus_triplets, rM = locus_gene_triplets, rColCl = ColCl,
                                rG = ge_data, rC = cn_data, rTox = ce_data, rQuantileMat = quantile_mat,
                                LAMBDA_G = l_g, LAMBDA_O = l_o, LAMBDA_Smooth = l_s,
                                NSEGMENTS = n_s, MAKE_VALIDATION_SET = v_s,
-                               log_file_suffix = r_n, log_file_dir = logfile_path)
+                               log_file_suffix = r_n, log_file_dir = logfile_path,
+                       fit_efficacy = fit_eff)
 
       run_df <- data.frame(run_name=run,
                            lambda_g=l_g,
@@ -227,12 +242,19 @@ run_ceres <- function(sg_data, cn_data, guide_locus, locus_gene,
     n_s <- optimal_run[["n_segments"]] %>% as.integer()
     v_s <- 0
     r_n <- optimal_run[["run_name"]] %>% as.character()
-
+    
+    if(fit_efficacy){
+      fit_eff <- 1
+    } else {
+      fit_eff <- 0
+    }
+    
     res <- fit_ceres(rD = sg_data, rQ = guide_locus_triplets, rM = locus_gene_triplets, rColCl = ColCl,
                              rG = ge_data, rC = cn_data, rTox = ce_data, rQuantileMat = quantile_mat,
                              LAMBDA_G = l_g, LAMBDA_O = l_o, LAMBDA_Smooth = l_s,
                              NSEGMENTS = n_s, MAKE_VALIDATION_SET = v_s,
-                             log_file_suffix = r_n, log_file_dir = logfile_path)
+                             log_file_suffix = r_n, log_file_dir = logfile_path,
+                     fit_efficacy = fit_eff)
     #
     collated_results <- ceres::collate_ceres_results(res, sg_data, cn_data)
 
