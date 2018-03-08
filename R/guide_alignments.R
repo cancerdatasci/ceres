@@ -4,9 +4,9 @@
 #' @importFrom BSgenome getSeq
 #' @export
 #'
-fetchPAM <- function(chr, pos, strand) {
-    PAM_start <- ifelse(strand=="+", pos+20, pos-3)
-    PAM_end <- ifelse(strand=="+", pos+22, pos-1)
+fetchPAM <- function(chr, pos, strand, guide_length=20) {
+    PAM_start <- ifelse(strand=="+", pos+guide_length, pos-3)
+    PAM_end <- ifelse(strand=="+", pos+guide_length+2, pos-1)
 
     PAM <- getSeq(BSgenome.Hsapiens.UCSC.hg19,
                             names=chr,
@@ -35,9 +35,11 @@ fetchPAM <- function(chr, pos, strand) {
 #'
 guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
                             genome_id="hg19", chromosomes=paste0("chr", c(as.character(1:22), "X", "Y")),
-                            include.no.align=F, as.df=T) {
+                            include.no.align=F, as.df=T, guide_length=20) {
 
     bam <- scanBam(bam.file)
+    
+    print('in guide alignments')
 
     ### Bam file to data frame, count number of alignments
     bamdf <- dplyr::as_data_frame(bam[[1]][1:6]) %>%
@@ -50,6 +52,7 @@ guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
         dplyr::mutate(N.alns = sum(Aligned)) %>%
         dplyr::ungroup()
 
+    print(dim(bamdf))
     bamdf.noAlign <- dplyr::as_data_frame(bam[[1]][1:6]) %>%
         dplyr::mutate(Gene = str_extract(qname, "_.+$") %>%
                          str_sub(start=2),
@@ -57,15 +60,15 @@ guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
                Aligned = !is.na(rname)) %>%
         dplyr::filter(!Aligned) %>%
         dplyr::mutate(N.alns = 0)
+    print(dim(bamdf.noAlign))
 
-
-    ### Limit guides with too many alignemnts, annotate position from biomart data
+    ### Limit guides with too many alignments, annotate position from biomart data
     bamdf.filt <- bamdf %>% dplyr::filter(N.alns < max.alns)
 
     bamdf.pam <- dplyr::mutate(bamdf.filt,
-                               Cut.Pos = ifelse(strand=="+", pos+16, pos+2),
-                               PAM.start = ifelse(strand=="+", pos+20, pos-3),
-                               PAM.end = ifelse(strand=="+", pos+22, pos-1))
+                               Cut.Pos = ifelse(strand=="+", pos+guide_length-4, pos+2),
+                               PAM.start = ifelse(strand=="+", pos+guide_length, pos-3),
+                               PAM.end = ifelse(strand=="+", pos+guide_length+2, pos-1))
 
     bamdf.pam$PAM <- getSeq(BSgenome.Hsapiens.UCSC.hg19,
                             names=bamdf.pam$rname,
@@ -79,7 +82,8 @@ guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
         dplyr::mutate(N.alns = sum(str_detect(PAM, pam))) %>%
         dplyr::ungroup()
 
-
+    print('bamdf.pam')
+    print(bamdf.pam[1:10, ])
     if (any(bamdf.pam$N.alns == 0)) {
         bamdf.noAlign <-
             dplyr::bind_rows(bamdf.noAlign,
@@ -97,6 +101,8 @@ guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
     } else {
         bamdf.final <- bamdf.pam
     }
+    
+    print(dim(bamdf.final))
 
     if (as.df) {
         return(bamdf.final)

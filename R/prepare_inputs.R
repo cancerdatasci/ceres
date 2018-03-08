@@ -8,7 +8,7 @@ map_guide_to_locus <- function(guides,
                                bowtie_exe="bowtie",
                                samtools_exe="samtools",
                                temp_dir=tempdir(),
-                               write_rds_output_path=NULL) {
+                               write_rds_output_path=NULL, guide_length=20) {
 
     guides_fa <- file.path(temp_dir, "guides.fa")
     guides_sam <- file.path(temp_dir, "guides.sam")
@@ -28,7 +28,7 @@ map_guide_to_locus <- function(guides,
     system(samtools_cmd)
 
     alns <- guideAlignments(guides_bam, max.alns=100,
-                            include.no.align=T, as.df=T)
+                            include.no.align=T, as.df=T, guide_length=guide_length)
 
     if(!is.null(write_rds_output_path)){
         cat(paste('Writing the mapping of sgRNAs to the genome in', write_rds_output_path, 'csv file'))
@@ -223,6 +223,8 @@ prepare_ceres_inputs <-
             guide_dep <- readRDS(pre_generated_guides_file)
         }
 
+        guide_length <- nchar(rownames(guide_dep)[2])
+
         rep_map <- readr::read_tsv(rep_map_file)
 
 
@@ -233,7 +235,8 @@ prepare_ceres_inputs <-
         if(is.null(guide_alns_file)){
             cat("mapping sgRNAs to the genome...\n\n")
             guide_alns <- map_guide_to_locus(rownames(guide_dep), genome_id=genome_id,
-                                         bowtie_exe=bowtie_exe, samtools_exe=samtools_exe)
+                                         bowtie_exe=bowtie_exe, samtools_exe=samtools_exe,
+                                         guide_length=guide_length)
         }
         else{
             cat("reading sgRNAs mapped to the genome...\n\n")
