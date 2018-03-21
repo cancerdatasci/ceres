@@ -149,7 +149,7 @@ wrap_ceres <- function(sg_path, cn_path, guide_locus_path,
     
     res <- run_ceres(sg_data, cn_data, guide_locus, locus_gene,
                       replicate_map, 
-                      params)
+                      params, fit_efficacy)
     
   } else {
     if(is.null(params)){
