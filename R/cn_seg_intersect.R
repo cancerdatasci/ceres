@@ -12,14 +12,16 @@ intersect_guide_with_copy_number <- function (guide.gr, seg.gr,
                                               CN.column="CN", guide.column = "Guide",
                                               do_parallel = F) {
     stopifnot(is.list(seg.gr))
+    single_cell_line <- length(names(seg.gr)) == 1
     laply(seg.gr, function(seg) {
-        hits <- findOverlaps(guide.gr, seg) %>% as.data.frame %>%
+        hits <- GenomicRanges::findOverlaps(guide.gr, seg) %>% as.data.frame %>%
             dplyr::distinct(queryHits, .keep_all = T)
         CN <- rep(NA, length(guide.gr))
         CN[hits$queryHits] <- as.data.frame(seg)[hits$subjectHits,
                                                  CN.column]
         return(CN)
-    }, .parallel = do_parallel) %>% t() %>%
+    }, .parallel = do_parallel) %>% 
+        {if(single_cell_line) as.matrix(.) else t(.)} %>%
         set_colnames(names(seg.gr)) %>%
         set_rownames(mcols(guide.gr)[, guide.column])
 }
