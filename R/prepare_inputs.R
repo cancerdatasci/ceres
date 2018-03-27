@@ -254,12 +254,12 @@ prepare_ceres_inputs <-
                                                     chromosomes=chromosomes,
                                                     do_parallel=do_parallel)
 
-        locus_cn <- guide_cn_mat[str_detect(rownames(guide_cn_mat), "chr"), ] %>%
+        locus_cn <- guide_cn_mat[str_detect(rownames(guide_cn_mat), "chr"), , drop=F] %>%
             set_rownames(rownames(.) %>% str_extract("chr.+$")) %>%
             {.[rownames(.),]} %>%
             remove.rows.all.nas()
 
-        non_targeting_cn <- guide_cn_mat[!str_detect(rownames(guide_cn_mat), "chr"), ]
+        non_targeting_cn <- guide_cn_mat[!str_detect(rownames(guide_cn_mat), "chr"), , drop=F]
 
 
         guide_locus_df <- guide_alns %>%
@@ -298,7 +298,7 @@ prepare_ceres_inputs <-
         guide_dep <- guide_dep[guides_to_use,
                                rep_map %>%
                                    dplyr::filter(CellLine %in% cell_lines_to_use) %$%
-                                   Replicate]
+                                   Replicate, drop=F]
 
         if (dep_normalize=="zmad") {
             guide_dep <- plyr::aaply(guide_dep, 2, function(cl) {
