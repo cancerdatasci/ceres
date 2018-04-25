@@ -23,7 +23,7 @@ NULL
 #' @export run_ceres
 #'
 run_ceres <- function(sg_data, cn_data, guide_locus, locus_gene,
-                      replicate_map, params, fit_efficacy){
+                      replicate_map, params, fit_efficacy=T){
 
 
   # Set path to log file
