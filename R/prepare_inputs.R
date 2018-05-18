@@ -256,7 +256,7 @@ prepare_ceres_inputs <-
 
         locus_cn <- guide_cn_mat[str_detect(rownames(guide_cn_mat), "chr"), , drop=F] %>%
             set_rownames(rownames(.) %>% str_extract("chr.+$")) %>%
-            {.[rownames(.),]} %>%
+            {.[rownames(.), , drop=F]} %>%
             remove.rows.all.nas()
 
         non_targeting_cn <- guide_cn_mat[!str_detect(rownames(guide_cn_mat), "chr"), , drop=F]
