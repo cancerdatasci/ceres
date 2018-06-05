@@ -85,6 +85,7 @@ guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
     print('bamdf.pam')
     print(bamdf.pam[1:10, ])
     if (any(bamdf.pam$N.alns == 0)) {
+        print("At least one guide aligned without corresponding PAM")
         bamdf.noAlign <-
             dplyr::bind_rows(bamdf.noAlign,
                              bamdf.pam %>%
@@ -92,8 +93,8 @@ guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
                                  dplyr::distinct(qname, Gene, Guide, .keep_all=T) %>%
                                  dplyr::select(qname, Gene, Guide, N.alns) %>%
                                  dplyr::mutate(Aligned = FALSE))
-        bamdf.pam <- bamdf.pam %>% dplyr::filter(stringr::str_detect(PAM, pam))
     }
+    bamdf.pam <- bamdf.pam %>% dplyr::filter(stringr::str_detect(PAM, pam))
 
 
     if (include.no.align) {
