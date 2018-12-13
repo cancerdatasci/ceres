@@ -5,7 +5,7 @@
 \title{CERES main routine}
 \usage{
 run_ceres(sg_data, cn_data, guide_locus, locus_gene, replicate_map, params,
-  fit_efficacy)
+  fit_efficacy = T)
 }
 \arguments{
 \item{sg_data}{matrix with sgRNA sequences as row names, samples (i.e. replicates of cell line screens) as column names.}

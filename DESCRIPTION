@@ -11,8 +11,9 @@ LazyData: true
 LinkingTo: Rcpp, RcppEigen
 Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.3.3.0), magrittr, e1071, plyr, dplyr,
     ggplot2, stringr, readr, reshape2, tidyr, data.table,
-    Biostrings, Rsamtools, GenomeInfoDb, BSgenome, BSgenome.Hsapiens.UCSC.hg19, GenomicRanges
+    Biostrings, Rsamtools, GenomeInfoDb, BSgenome, GenomicRanges
 RoxygenNote: 6.0.1.9000
 Suggests: knitr,
-    rmarkdown
+    rmarkdown,
+    BSgenome.Hsapiens.UCSC.hg19, BSgenome.Hsapiens.UCSC.hg38
 VignetteBuilder: knitr

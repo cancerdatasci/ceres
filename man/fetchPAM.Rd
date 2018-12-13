@@ -4,7 +4,7 @@
 \alias{fetchPAM}
 \title{Get a PAM sequence}
 \usage{
-fetchPAM(chr, pos, strand)
+fetchPAM(chr, pos, strand, guide_length = 20, genome_id = "hg19")
 }
 \description{
 Get a PAM sequence

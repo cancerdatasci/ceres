@@ -6,7 +6,7 @@
 \usage{
 map_guide_to_locus(guides, genome_id = "hg19", bowtie_exe = "bowtie",
   samtools_exe = "samtools", temp_dir = tempdir(),
-  write_rds_output_path = NULL)
+  write_rds_output_path = NULL, guide_length = 20)
 }
 \description{
 Map guide to locus

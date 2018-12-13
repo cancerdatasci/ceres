@@ -6,7 +6,7 @@
 \usage{
 guideAlignments(bam.file, max.alns = 100, pam = "[ACGTN]GG|GG[ACGTN]",
   genome_id = "hg19", chromosomes = paste0("chr", c(as.character(1:22), "X",
-  "Y")), include.no.align = F, as.df = T)
+  "Y")), include.no.align = F, as.df = T, guide_length = 20)
 }
 \arguments{
 \item{bam.file}{BAM file path}

@@ -1,14 +1,23 @@
+# fetch a the corresponding BSGenome object by the genome_id
+getBSgenome <- function(genome_id) {
+    if(genome_id == "hg19") {
+        return (BSgenome.Hsapiens.UCSC.hg19::BSgenome.Hsapiens.UCSC.hg19)
+    } else if(genome_id == "hg38") {
+        return (BSgenome.Hsapiens.UCSC.hg38::BSgenome.Hsapiens.UCSC.hg38)
+    } else {
+        stop(paste0(genome_id, " is not a known genome id"))
+    }
+}
 
 #' Get a PAM sequence
-#' @importFrom BSgenome.Hsapiens.UCSC.hg19 BSgenome.Hsapiens.UCSC.hg19
 #' @importFrom BSgenome getSeq
 #' @export
 #'
-fetchPAM <- function(chr, pos, strand, guide_length=20) {
+fetchPAM <- function(chr, pos, strand, guide_length=20, genome_id="hg19") {
     PAM_start <- ifelse(strand=="+", pos+guide_length, pos-3)
     PAM_end <- ifelse(strand=="+", pos+guide_length+2, pos-1)
 
-    PAM <- getSeq(BSgenome.Hsapiens.UCSC.hg19,
+    PAM <- getSeq(getBSgenome(genome_id),
                             names=chr,
                             start=PAM_start,
                             end=PAM_end,
@@ -29,7 +38,6 @@ fetchPAM <- function(chr, pos, strand, guide_length=20) {
 #' @return data.frame or GRanges object of results
 #' @importFrom Rsamtools scanBam
 #' @importFrom GenomeInfoDb Seqinfo
-#' @importFrom BSgenome.Hsapiens.UCSC.hg19 BSgenome.Hsapiens.UCSC.hg19
 #' @importFrom BSgenome getSeq
 #' @export
 #'
@@ -70,7 +78,7 @@ guideAlignments <- function(bam.file, max.alns=100, pam="[ACGTN]GG|GG[ACGTN]",
                                PAM.start = ifelse(strand=="+", pos+guide_length, pos-3),
                                PAM.end = ifelse(strand=="+", pos+guide_length+2, pos-1))
 
-    bamdf.pam$PAM <- getSeq(BSgenome.Hsapiens.UCSC.hg19,
+    bamdf.pam$PAM <- getSeq(getBSgenome(genome_id),
                             names=bamdf.pam$rname,
                             start=bamdf.pam$PAM.start,
                             end=bamdf.pam$PAM.end,
