@@ -28,7 +28,7 @@ map_guide_to_locus <- function(guides,
     system(samtools_cmd)
 
     alns <- guideAlignments(guides_bam, max.alns=100,
-                            include.no.align=T, as.df=T, guide_length=guide_length)
+                            include.no.align=T, as.df=T, guide_length=guide_length, genome_id=genome_id)
 
     if(!is.null(write_rds_output_path)){
         cat(paste('Writing the mapping of sgRNAs to the genome in', write_rds_output_path, 'csv file'))
