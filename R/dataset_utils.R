@@ -229,8 +229,8 @@ collapse_rows_of_matrix <- function(mat, group_df,
         dplyr::filter((!!SampleVar) %in% rownames(mat)) %>%
         dplyr::distinct(GroupVar, SampleVar)
 
-    single_group_df <- group_df %>% dplyr::group_by(!!GroupVar) %>% dplyr::filter(n() == 1)
-    group_df <- group_df %>% dplyr::group_by(!!GroupVar) %>% dplyr::filter(n() > 1)
+    single_group_df <- group_df %>% dplyr::group_by(!!GroupVar) %>% dplyr::filter(dplyr::n() == 1)
+    group_df <- group_df %>% dplyr::group_by(!!GroupVar) %>% dplyr::filter(dplyr::n() > 1)
 
     mat_1 <- mat[single_group_df[[SampleStr]],, drop=F] %>%
         set_rownames(single_group_df[[GroupStr]])

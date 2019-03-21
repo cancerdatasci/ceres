@@ -149,7 +149,7 @@ load_ccds_genes <- function(ccds_file,
                    str_split("\\s*,\\s*")) %>%
         tidyr::unnest(cds_interval) %>%
         dplyr::group_by(gene, gene_id, cds_locations) %>%
-        dplyr::mutate(exon_code = ifelse(cds_strand=="+", 1:n(), n():1)) %>%
+        dplyr::mutate(exon_code = ifelse(cds_strand=="+", 1:dplyr::n(), dplyr::n():1)) %>%
         dplyr::ungroup() %>%
         dplyr::mutate(cds_start = str_extract(cds_interval, "^[0-9]+") %>% as.integer,
                cds_end = str_extract(cds_interval, "[0-9]+$") %>% as.integer) %>%

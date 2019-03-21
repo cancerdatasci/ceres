@@ -18,7 +18,7 @@ cluster_cn <- function(cn_vec, min_dpts=25, cluster_method="average", n_segments
     data.frame(cn=.) %>%
     dplyr::arrange(cn) %>%
     dplyr::filter(!is.na(cn)) %>%
-    dplyr::mutate(quantile=cut(1:n(), breaks=floor(n()/min_dpts), labels=F, include.lowest = T)) %>%
+    dplyr::mutate(quantile=cut(1:dplyr::n(), breaks=floor(dplyr::n()/min_dpts), labels=F, include.lowest = T)) %>%
     dplyr::group_by(quantile) %>%
     dplyr::summarise(max_cn=max(cn)) %>%
     dplyr::ungroup() %>%
